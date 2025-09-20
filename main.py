@@ -54,7 +54,6 @@ def process_file(file_path, form_client=None, vision_client=None):
         return None
 
 def main():
-# API Configuration
     config = {
         "form_recognizer": {
             "endpoint": "https://<your-form-recognizer-endpoint>.cognitiveservices.azure.com/",
@@ -66,7 +65,6 @@ def main():
         }
     }
 
-    # Initialize clients
     form_client = create_client(
         DocumentAnalysisClient, 
         config["form_recognizer"]["endpoint"], 
@@ -80,7 +78,6 @@ def main():
         CognitiveServicesCredentials
     )
 
-    # Process files
     files = {
         "document": "bob_documento.pdf",
         "image": "bob_imagem.png"
@@ -90,4 +87,5 @@ def main():
         process_file(file_path, form_client, vision_client)
 
 if __name__ == "__main__":
+
     main()
